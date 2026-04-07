@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Bhoomika - Happy Birthday My Love ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.2rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+            word-break: break-word;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6); }
+            to { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.8); }
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            font-weight: 300;
+            opacity: 0.9;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-dot.active {
+            background: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 1rem;
+            margin: 0 auto;
+        }
+
+        /* Love Message */
+        .love-message {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .love-text {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            word-break: break-word;
+        }
+
+        .heart {
+            font-size: clamp(3rem, 8vw, 4rem);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* Photos Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        /* Memories Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(20px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .timeline-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #ff6b9d;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Birthday Wish */
+        .birthday-wish {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cake {
+            font-size: clamp(4rem, 10vw, 6rem);
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .countdown {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin-top: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+
+        .music-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .music-btn.playing {
+            background: #ff6b9d;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section headings */
+        .section-heading {
+            text-align: center;
+            color: white;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 2rem;
+            font-family: 'Dancing Script', cursive;
+            word-break: break-word;
+            padding: 0 1rem;
+        }
+
+        /* ========== SUPER RESPONSIVE IMPROVEMENTS ========== */
+        
+        /* Small phones (up to 480px) */
+        @media (max-width: 480px) {
+            .nav-dots {
+                right: 0.5rem;
+                gap: 0.7rem;
+            }
+            
+            .nav-dot {
+                width: 8px;
+                height: 8px;
+            }
+            
+            .photo-card img {
+                height: 220px;
+            }
+            
+            .birthday-wish {
+                padding: 2rem 1rem;
+            }
+            
+            .birthday-wish h2 {
+                font-size: 1.8rem !important;
+            }
+            
+            .birthday-wish p {
+                font-size: 1rem !important;
+            }
+            
+            .love-text {
+                font-size: 0.95rem;
+            }
+            
+            .music-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Tablets and small desktops */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .photo-card img {
+                height: 250px;
+            }
+            
+            .birthday-wish {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .nav-dots {
+                right: 0.8rem;
+            }
+        }
+        
+        /* Large tablets */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .photo-card img {
+                height: 280px;
+            }
+        }
+        
+        /* Fix for very large screens */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Landscape mode on phones */
+        @media (max-width: 768px) and (orientation: landscape) {
+            section {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .photo-card img {
+                height: 180px;
+            }
+            
+            .birthday-wish {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .photo-card:hover {
+                transform: none;
+            }
+            
+            .photo-card:hover .photo-overlay {
+                transform: translateY(100%);
+            }
+            
+            .photo-card:active .photo-overlay {
+                transform: translateY(0);
+            }
+            
+            .nav-dot {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        
+        /* Animation for wish granted */
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="scrollToSection(0)"></div>
+        <div class="nav-dot" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+    </div>
+
+    <!-- Music Button -->
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        🎵
+         
+    </div>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="bhoomika.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Section 1: Header -->
+    <section id="section0">
+        <div class="header">
+            <h1 class="birthday-title">Happy Birthday Bhoomika! 🎉</h1>
+            <p class="subtitle">To the most beautiful girl in my world ❤️</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Love Message -->
+    <section id="section1">
+        <div class="container">
+            <div class="love-message">
+                <div class="heart">💖</div>
+                <p class="love-text">
+                    Bhoomika, tum meri zindagi ka sabse khoobsurat tohfa ho. Har pal tumhare saath ek sapna sa lagta hai. 
+                    Tumhari smile meri duniya roshan kar deti hai. Aaj tumhara special day hai, aur main chahta hoon 
+                    ki ye din hamesha yaad rahe. I love you more than words can express! 💕
+                </p>
+                <div style="font-size: clamp(1.2rem, 4vw, 1.5rem); margin-top: 2rem;">
+                    Tumhare bina... incomplete hoon main! ❤️
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Photos Gallery -->
+    <section id="section2">
+        <div class="container">
+            <h2 class="section-heading">
+                Our Beautiful Memories 📸
+            </h2>
+            <div class="photo-gallery">
+                <!-- Replace these image sources with your 10-15 photos -->
+                <div class="photo-card">
+                    <img src="bhoomika1.jpg" alt="Bhoomika 1" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+1'">
+                    <div class="photo-overlay">
+                        <h3>Perfect Smile ✨</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika2.jpg" alt="Bhoomika 2" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+2'">
+                    <div class="photo-overlay">
+                        <h3>My Sunshine ☀️</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika3.jpg" alt="Bhoomika 3" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+3'">
+                    <div class="photo-overlay">
+                        <h3>Always Beautiful 💖</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika4.jpg" alt="Bhoomika 4" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+4'">
+                    <div class="photo-overlay">
+                        <h3>Love of my life ❤️</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika5.jpg" alt="Bhoomika 5" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+5'">
+                    <div class="photo-overlay">
+                        <h3>Forever together 💑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika6.jpg" alt="Bhoomika 6" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+6'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika7.jpg" alt="Bhoomika 7" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+7'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika8.jpg" alt="Bhoomika 8" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+8'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika9.jpg" alt="Bhoomika 9" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+9'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika10.jpg" alt="Bhoomika 10" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+10'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika11.jpg" alt="Bhoomika 11" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+11'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika12.jpg" alt="Bhoomika 12" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+12'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika13.jpg" alt="Bhoomika 13" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+13'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika14.jpg" alt="Bhoomika 14" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+14'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="bhoomika15.jpg" alt="Bhoomika 15" onerror="this.src='https://via.placeholder.com/400x350?text=Photo+15'">
+                    <div class="photo-overlay">
+                        <h3>Queen of my heart 👑</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Birthday Wish -->
+    <section id="section3">
+        <div class="container">
+            <div class="birthday-wish">
+                <div class="cake">🎂✨</div>
+                <h2 style="font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 6vw, 3.5rem); color: #ff6b9d; margin-bottom: 1rem;">
+                    Bhoomika - You're 1 Year More Amazing! 🎈
+                </h2>
+                <p style="font-size: clamp(1rem, 3vw, 1.3rem); color: white; line-height: 1.8; margin-bottom: 2rem;">
+                    Ye saal bhi tere liye khushiyon, pyaar aur success se bhara ho. 
+                    Main hamesha tere saath hoon, har kadam par. 
+                    Happy Birthday my love! Make a wish! 🕯️
+                </p>
+                <div class="countdown" id="countdown">
+                    Click to make a wish! ✨
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling navigation
+        function scrollToSection(index) {
+            const element = document.getElementById(`section${index}`);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+        }
+
+        // Update nav dots on scroll with throttling for performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const sections = document.querySelectorAll('section');
+                    const scrollPos = window.scrollY + window.innerHeight / 2;
+                    
+                    sections.forEach((section, index) => {
+                        const offsetTop = section.offsetTop;
+                        const offsetHeight = section.offsetHeight;
+                        if (offsetTop < scrollPos && scrollPos < offsetTop + offsetHeight) {
+                            const activeDot = document.querySelectorAll('.nav-dot')[index];
+                            if (activeDot && !activeDot.classList.contains('active')) {
+                                document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.remove('active'));
+                                activeDot.classList.add('active');
+                            }
+                        }
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Music toggle using the local audio file
+        const music = document.getElementById('bgMusic');
+        let isPlaying = false;
+        async function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            if (!music || !btn) return;
+
+            if (isPlaying) {
+                music.pause();
+                btn.textContent = '🎵';
+                btn.classList.remove('playing');
+                isPlaying = false;
+                return;
+            }
+
+            try {
+                await music.play();
+                btn.textContent = '⏸️';
+                btn.classList.add('playing');
+                isPlaying = true;
+            } catch (error) {
+                console.error('Audio playback failed:', error);
+            }
+        }
+
+        if (music) {
+            music.addEventListener('pause', () => {
+                const btn = document.getElementById('musicBtn');
+                if (btn && !music.ended) {
+                    btn.textContent = '🎵';
+                    btn.classList.remove('playing');
+                }
+                isPlaying = false;
+            });
+        }
+
+        // Countdown/wish effect
+        const countdownEl = document.getElementById('countdown');
+        if (countdownEl) {
+            countdownEl.onclick = function() {
+                this.innerHTML = `
+                    <div style="font-size: clamp(1.2rem, 4vw, 1.5rem); animation: sparkle 1s ease-in-out;">
+                        ✨ Wish Granted! ✨<br>
+                        All your dreams will come true! 💫
+                    </div>
+                `;
+            };
+        }
+
+        // Parallax effect with throttling
+        let parallaxTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!parallaxTicking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const parallax = document.querySelector('.bg-animation');
+                    if (parallax) {
+                        parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    }
+                    parallaxTicking = false;
+                });
+                parallaxTicking = true;
+            }
+        });
+
+        // Entrance animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.photo-card, .timeline-item, .love-message').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
